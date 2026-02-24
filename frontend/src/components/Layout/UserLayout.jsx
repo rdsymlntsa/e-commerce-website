@@ -2,7 +2,7 @@ import Header from "../Common/Header";
 const UserLayout=()=>{
    return <>
    {/* Header */}
-   <Header></Header>
+   <Header/>
    {/* Main */}
    {/* Footer */}
    
