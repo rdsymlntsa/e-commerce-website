@@ -15,7 +15,7 @@ const TopBar = () => {
           <FaSquareXTwitter className="text-white h-4 w-4" /></a>
         </div>
         <div>
-          <p className="text-white text-center text-sm">
+          <p className="text-white grow text-center text-sm">
             We ship worldwide-Fast and reliable shipping!
           </p>
         </div>

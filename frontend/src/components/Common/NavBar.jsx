@@ -8,7 +8,7 @@ import { HiOutlineBars3BottomRight } from "react-icons/hi2";
 import CartDrawer from "../Layout/CartDrawer";
 import { IoIosClose } from "react-icons/io";
 const NavBar = () => {
-  const [drawerOpen, setDrawerOpen] = useState(true);
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const toggleCartDrawer = () => {
     setDrawerOpen(!drawerOpen);
   };
