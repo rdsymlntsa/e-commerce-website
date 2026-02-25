@@ -4,7 +4,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 
 const TopBar = () => {
   return (
-    <div className="bg-red-500">
+    <div className="bg-green-600">
       <div className="container mx-auto flex justify-between p-3 px-6">
         <div className="hidden md:flex justify-evenly gap-4">
           <a href="#" className="hover:text-gray-300" >
