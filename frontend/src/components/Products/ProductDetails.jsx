@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
+import ProductGrid from "./ProductGrid";
 
 const selectedProduct = {
   name: "Stylish Jacket",
@@ -22,6 +23,49 @@ const selectedProduct = {
   ],
 };
 
+const similarProducts = [
+  {
+    _id: 1,
+    name: "Product 1",
+    price: 500,
+    images: [
+      {
+        url: "https://picsum.photos/500/500?random=1",
+      },
+    ],
+  },
+  {
+    _id: 1,
+    name: "Product 2",
+    price: 400,
+    images: [
+      {
+        url: "https://picsum.photos/500/500?random=2",
+      },
+    ],
+  },
+  {
+    _id: 3,
+    name: "Product 3",
+    price: 300,
+    images: [
+      {
+        url: "https://picsum.photos/500/500?random=3",
+      },
+    ],
+  },
+  {
+    _id: 4,
+    name: "Product 4",
+    price: 500,
+    images: [
+      {
+        url: "https://picsum.photos/500/500?random=4",
+      },
+    ],
+  }
+];
+
 const ProductDetails = () => {
   const [mainImage, setMainImage] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
@@ -37,14 +81,13 @@ const ProductDetails = () => {
       return;
     }
     setIsButtonDisabled(true);
-    setTimeout(()=>{
-      toast.success("Product added to the cart!",{
-        duration: 1000
+    setTimeout(() => {
+      toast.success("Product added to the cart!", {
+        duration: 1000,
       });
 
       setIsButtonDisabled(false);
-    },500)
-
+    }, 500);
   };
 
   const handleQuantityChange = (action) => {
@@ -59,8 +102,8 @@ const ProductDetails = () => {
   }, [selectedProduct]);
 
   return (
-    <div className="p-6 ml-15">
-      <div className="p-8 max-w-6xl bg-white rounded-lg">
+    <div className="p-6">
+      <div className="p-8 mx-auto max-w-6xl bg-white rounded-lg">
         <div className="flex flex-col md:flex-row">
           <div className="hidden md:flex flex-col space-y-4 mr-6">
             {selectedProduct.images.map((image, index) => (
@@ -185,6 +228,12 @@ const ProductDetails = () => {
               </table>
             </div>
           </div>
+        </div>
+        <div className="mt-20">
+          <h2 className="text-2xl font-medium text-center mb-4">
+            You May Also Like
+          </h2>
+          <ProductGrid products={similarProducts} />
         </div>
       </div>
     </div>
