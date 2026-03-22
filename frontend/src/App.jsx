@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserLayout from "./components/Layout/UserLayout";
 import Home from "./Pages/Home";
 import { Toaster } from "sonner";
+
 const App = () => {
   return (
     <BrowserRouter>
