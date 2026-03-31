@@ -48,12 +48,13 @@ const MyOrdersPage = () => {
       <h1 className="text-xl sm:text-2xl font-bold mb-6">My Orders</h1>
       <div className="overflow-hidden relative shadow-md sm:rounded-lg">
         <table className="text-gray-500 text-left min-w-full">
-          <thead className="text-xs bg-gray-100 uppercase text-gray-700">
+          <thead className=" text-xs bg-gray-100 uppercase text-gray-700">
             <tr>
               <th className="py-2 px-4 sm:py-3">Image</th>
               <th className="py-2 px-4 sm:py-3">Order Id</th>
               <th className="py-2 px-4 sm:py-3">Created</th>
               <th className="py-2 px-4 sm:py-3">Shipping Address</th>
+              <th className="py-2 px-4 sm:py-3">Items</th>
               <th className="py-2 px-4 sm:py-3">Price</th>
               <th className="py-2 px-4 sm:py-3">Status</th>
             </tr>
@@ -81,11 +82,6 @@ const MyOrdersPage = () => {
                   </td>
                   <td className="py-2 px-2 sm:py-4 sm:px-4">
                     {order.shippingAddress
-                      ? `${order.shippingAddress.city},{order.shippingAddress.country}`
-                      : "N/A"}
-                  </td>
-                  <td className="py-2 px-2 sm:py-4 sm:px-4">
-                    {order.shippingAddress
                       ? `${order.shippingAddress.city},${order.shippingAddress.country}`
                       : "N/A"}
                   </td>
@@ -97,7 +93,7 @@ const MyOrdersPage = () => {
                   </td>
                   <td className="px-2 py-2 sm:py-4 sm:px-4">
                     <span
-                      className={`${order.isPaid ? "bg-green-100 text-green-700":"bg-red-100 text-red-700"} 
+                      className={`${order.isPaid ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"} 
                       px-2 py-1 rounded-full text-xs sm:text-sm font-medium  `}
                     >
                       {order.isPaid ? "paid" : "pending"}
