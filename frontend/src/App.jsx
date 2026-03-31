@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import { Toaster } from "sonner";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import Profile from "./Pages/Profile";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Route index element={<Home />}></Route>
           <Route path="login" element={<Login />}></Route>
           <Route path="register" element={<Register />}></Route>
+          <Route path="profile" element={<Profile />}></Route>
         </Route>
         <Route></Route>
       </Routes>
