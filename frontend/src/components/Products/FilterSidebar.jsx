@@ -72,7 +72,7 @@ const FilterSidebar = () => {
         minPrice: params.minPrice || 0,
         maxPrice: params.maxPrice || 100,
       },
-      [searchParams],
+    // [searchParams],
     );
     setPriceRange([0, params.maxPrice || 100]);
   }, [searchParams]);

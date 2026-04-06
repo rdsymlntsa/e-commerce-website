@@ -21,10 +21,10 @@ const CollectionPage = () => {
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
-    document.removeEventListener("mousedown", handleClickOutside);
+    return ()=> {document.removeEventListener("mousedown", handleClickOutside);}
     // return ()=>{document.removeEventListener("mousedown",handleClickOutside)
     //   ;}
-  });
+  },[]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -119,7 +119,7 @@ const CollectionPage = () => {
       <button
         onClick={toggleSidebar}
         className="lg:hidden border p-2 flex justify-center 
-  items-center"
+  items-center border-none"
       >
         <FaFilter className="mr-2" />
         Filters
