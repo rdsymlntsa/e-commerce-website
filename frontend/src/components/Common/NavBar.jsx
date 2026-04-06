@@ -26,18 +26,19 @@ const NavBar = () => {
           </Link>
         </div>
         <div className="hidden md:flex space-x-6">
-          <a href="#" className="text-gray-900 hover:text-black uppercase">
+          <Link to="/collections/all" className="text-gray-900 hover:text-black uppercase">
             MEN
-          </a>
-          <a href="#" className="text-gray-900 hover:text-black uppercase">
-            women
-          </a>
-          <a href="#" className="text-gray-900 hover:text-black uppercase">
-            Top wear
-          </a>
-          <a href="#" className="text-gray-700 hover:text-black uppercase">
-            bottom wear
-          </a>
+          </Link>
+
+          <Link to="#" className="text-gray-900 hover:text-black uppercase">
+            WOMEN
+          </Link>
+          <Link to="#" className="text-gray-900 hover:text-black uppercase">
+            TOP WEAR
+          </Link>
+          <Link to="#" className="text-gray-900 hover:text-black uppercase">
+            BOTTOM WEAR
+          </Link>
         </div>
         <div className="flex items-center justify-between gap-x-4">
           <Link to="/profile" className=" hover:text-black">
@@ -70,10 +71,34 @@ const NavBar = () => {
         </div>
         <nav className="space-x-4">
           <h3 className="text-xl p-4 font-semibold">Menu</h3>
-          <Link to="#" onClick={toggleNavDrawer} className="p-4 block text-gray-600 hover:text-black">Men</Link>
-          <Link to="#" onClick={toggleNavDrawer} className="p-4 block text-gray-600 hover:text-black">Women</Link>
-          <Link to="#" onClick={toggleNavDrawer} className="p-4 block text-gray-600 hover:text-black">Top Wear</Link>
-          <Link to="#" onClick={toggleNavDrawer} className="p-4 block text-gray-600 hover:text-black">Bottom Wear</Link>
+          <Link
+            to="/collections/all"
+            onClick={toggleNavDrawer}
+            className="p-4 block text-gray-600 hover:text-black"
+          >
+            Men
+          </Link>
+          <Link
+            to="#"
+            onClick={toggleNavDrawer}
+            className="p-4 block text-gray-600 hover:text-black"
+          >
+            Women
+          </Link>
+          <Link
+            to="#"
+            onClick={toggleNavDrawer}
+            className="p-4 block text-gray-600 hover:text-black"
+          >
+            Top Wear
+          </Link>
+          <Link
+            to="#"
+            onClick={toggleNavDrawer}
+            className="p-4 block text-gray-600 hover:text-black"
+          >
+            Bottom Wear
+          </Link>
         </nav>
       </div>
     </>
