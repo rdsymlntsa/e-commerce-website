@@ -63,7 +63,7 @@ const similarProducts = [
         url: "https://picsum.photos/500/500?random=4",
       },
     ],
-  }
+  },
 ];
 
 const ProductDetails = () => {

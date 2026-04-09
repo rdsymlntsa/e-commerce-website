@@ -21,10 +21,12 @@ const CollectionPage = () => {
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
-    return ()=> {document.removeEventListener("mousedown", handleClickOutside);}
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
     // return ()=>{document.removeEventListener("mousedown",handleClickOutside)
     //   ;}
-  },[]);
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -135,9 +137,9 @@ const CollectionPage = () => {
         <FilterSidebar />
       </div>
       <div className="grow p-4">
-           <h2 className="text-2xl uppercase mb-4">All Collections</h2>
-           <SortOptions />
-           <ProductGrid products={products}></ProductGrid>
+        <h2 className="text-2xl uppercase mb-4">All Collections</h2>
+        <SortOptions />
+        <ProductGrid products={products}></ProductGrid>
       </div>
     </div>
   );

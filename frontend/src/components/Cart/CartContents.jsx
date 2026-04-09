@@ -40,9 +40,15 @@ const CartContents = () => {
                 Size: {product.size} | Color: {product.color}
               </p>
               <div>
-                <button className="border rounded px-2.5 py-0.5 text-xl  font-medium">+</button>
-                <span className="mx-4 font-bold text-xl">{product.quantity}</span>
-                <button className="border rounded px-2.5 py-0.5 text-xl font-medium ">-</button>
+                <button className="border rounded px-2.5 py-0.5 text-xl  font-medium">
+                  +
+                </button>
+                <span className="mx-4 font-bold text-xl">
+                  {product.quantity}
+                </span>
+                <button className="border rounded px-2.5 py-0.5 text-xl font-medium ">
+                  -
+                </button>
               </div>
             </div>
           </div>
