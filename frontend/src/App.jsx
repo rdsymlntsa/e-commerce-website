@@ -8,6 +8,7 @@ import Profile from "./Pages/Profile";
 import CollectionPage from "./Pages/CollectionPage";
 import ProductDetails from "./components/Products/ProductDetails";
 import Checkout from "./components/Cart/Checkout";
+import OrderConfirmationPage from "./components/Cart/OrderConfirmationPage";
 
 const App = () => {
   return (
@@ -19,9 +20,16 @@ const App = () => {
           <Route path="login" element={<Login />}></Route>
           <Route path="register" element={<Register />}></Route>
           <Route path="profile" element={<Profile />}></Route>
-          <Route path="collections/:collection" element={<CollectionPage />}></Route>
+          <Route
+            path="collections/:collection"
+            element={<CollectionPage />}
+          ></Route>
           <Route path="product/:id" element={<ProductDetails />}></Route>
           <Route path="checkout" element={<Checkout />}></Route>
+          <Route
+            path="order-confirmation"
+            element={<OrderConfirmationPage />}
+          ></Route>
         </Route>
         <Route></Route>
       </Routes>

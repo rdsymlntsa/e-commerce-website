@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
   const navigate = useNavigate();
   const handleCheckout = () => {
+    toggleCartDrawer();
     navigate("/checkout");
   };
   return (
@@ -20,10 +21,10 @@ const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
         <CartContents />
       </div>
 
-      <div className="sticky bottom-0">
+      <div className="sticky bottom-0 px-4">
         <button
           onClick={handleCheckout}
-          className="w-full bg-black text-white hover:text-gray-500 rounded-lg transition"
+          className="w-full bg-black px-4 py-2 text-white hover:text-gray-500 rounded-lg transition"
         >
           Checkout
         </button>

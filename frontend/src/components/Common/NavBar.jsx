@@ -26,7 +26,10 @@ const NavBar = () => {
           </Link>
         </div>
         <div className="hidden md:flex space-x-6">
-          <Link to="/collections/all" className="text-gray-900 hover:text-black uppercase">
+          <Link
+            to="/collections/all"
+            className="text-gray-900 hover:text-black uppercase"
+          >
             MEN
           </Link>
 
