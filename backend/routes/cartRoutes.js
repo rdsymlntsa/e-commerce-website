@@ -121,4 +121,37 @@ router.put("/", async (req, res) => {
   }
 });
 
+//@route DELETE /api/cart
+//@desc Remove a product from the cart
+//access Public
+router.delete("/", async (req, res) => {
+  const { productId, size, color, userId, guestId } = req.body;
+  try {
+    const cart = await getCart(userId, guestId);
+    if (!cart) {
+      return res.status(404).json({ message: "Cart not found" });
+    }
+    const productIndex = cart.products.findIndex(
+      (p) =>
+        p.productId.toString() === productId &&
+        p.color === color &&
+        p.size === size,
+    );
+    if (productIndex > -1) {
+      cart.products.splice(productIndex, 1);
+      cart.totalPrice = cart.products.reduce(
+        (acc, item) => acc + item.price * item.quantity,
+        0,
+      );
+      await cart.save();
+      return res.status(200).json(cart);
+    } else {
+      return res.status(404).json({ message: "Product not found in cart" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Server Error" });
+  }
+});
+
 module.exports = router;
