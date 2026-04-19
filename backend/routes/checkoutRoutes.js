@@ -5,6 +5,8 @@ const Product = require("../models/Product");
 const Order = require("../models/Order");
 const { protect } = require("../middleware/authMiddleware");
 
+const router = express.Router();
+
 //@route POST /api/checkout
 //@desc Create a checkout session
 //@access Private
