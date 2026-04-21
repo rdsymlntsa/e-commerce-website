@@ -66,7 +66,7 @@ router.put("/:id/pay", protect, async (req, res) => {
 });
 
 //@route POST /api/checkout/:id/finalize
-//@desc Finalize checkout and covert to and order after payment confirmation
+//@desc Finalize checkout and covert to an order after payment confirmation
 //@access Private
 router.post("/:id/finalize", protect, async (req, res) => {
   try {
