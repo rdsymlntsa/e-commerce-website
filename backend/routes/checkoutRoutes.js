@@ -49,7 +49,7 @@ router.put("/:id/pay", protect, async (req, res) => {
 
     if (paymentStatus === "paid") {
       checkout.isPaid = true;
-      checkout.paymentMethod = paymentMethod;
+      checkout.paymentStatus = paymentStatus;
       checkout.paymentDetails = paymentDetails;
       checkout.paidAt = Date.now();
 
