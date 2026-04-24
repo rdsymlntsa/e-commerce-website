@@ -1,21 +1,28 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import register from "../assets/register.webp";
+import { useDispatch } from "react-redux";
+import { registerUser } from "../redux/slices/authSlice";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name,setName]=useState("");
+  const [name, setName] = useState("");
+  const dispatch = useDispatch();
 
-  const handleSubmit=(e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("user registered: ",{name , email , password});
-  }
+    dispatch(registerUser({ name, email, password }));
+    //console.log("user registered: ",{name , email , password});
+  };
 
   return (
     <div className="flex">
       <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-8 md:p-12">
-        <form onSubmit={handleSubmit} className="w-full max-w-md rounded-lg bg-white p-8 border shadow-sm">
+        <form
+          onSubmit={handleSubmit}
+          className="w-full max-w-md rounded-lg bg-white p-8 border shadow-sm"
+        >
           <div className="flex justify-center mb-6 ">
             <h2 className="font-medium text-xl">kalitego</h2>
           </div>
