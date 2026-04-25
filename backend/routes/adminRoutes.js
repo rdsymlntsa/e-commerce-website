@@ -42,7 +42,7 @@ router.post("/", protect, admin, async (req, res) => {
   }
 });
 
-//@route PUT /api/admin/user/:id
+//@route PUT /api/admin/users/:id
 //@desc Update user info (admin only) - Name, email and role
 //@access Private/Admin
 router.put("/:id", protect, admin, async (req, res) => {
