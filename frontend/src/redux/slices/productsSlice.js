@@ -78,7 +78,7 @@ export const fetchSimilarProducts = createAsyncThunk(
   },
 );
 
-const productSlice = createSlice({
+const productsSlice = createSlice({
   name: "products",
   initialState: {
     products: [],
