@@ -27,24 +27,36 @@ const NavBar = () => {
         </div>
         <div className="hidden md:flex space-x-6">
           <Link
-            to="/collections/all"
+            to="/collections/all?gender=Men"
             className="text-gray-900 hover:text-black uppercase"
           >
             MEN
           </Link>
 
-          <Link to="#" className="text-gray-900 hover:text-black uppercase">
+          <Link
+            to="/collections/all?gender=Women"
+            className="text-gray-900 hover:text-black uppercase"
+          >
             WOMEN
           </Link>
-          <Link to="#" className="text-gray-900 hover:text-black uppercase">
+          <Link
+            to="/collections/all?category=Top Wear"
+            className="text-gray-900 hover:text-black uppercase"
+          >
             TOP WEAR
           </Link>
-          <Link to="#" className="text-gray-900 hover:text-black uppercase">
+          <Link
+            to="/collections/all?category=Bottom Wear"
+            className="text-gray-900 hover:text-black uppercase"
+          >
             BOTTOM WEAR
           </Link>
         </div>
         <div className="flex items-center justify-between gap-x-4">
-          <Link to="/admin" className="bg-black text-sm block text-white rounded px-2">
+          <Link
+            to="/admin"
+            className="bg-black text-sm block text-white rounded px-2"
+          >
             Admin
           </Link>
           <Link to="/profile" className=" hover:text-black">
@@ -78,28 +90,28 @@ const NavBar = () => {
         <nav className="space-x-4">
           <h3 className="text-xl p-4 font-semibold">Menu</h3>
           <Link
-            to="/collections/all"
+            to="/collections/all?gender=Men"
             onClick={toggleNavDrawer}
             className="p-4 block text-gray-600 hover:text-black"
           >
             Men
           </Link>
           <Link
-            to="#"
+            to="/collections/all?gender=Women"
             onClick={toggleNavDrawer}
             className="p-4 block text-gray-600 hover:text-black"
           >
             Women
           </Link>
           <Link
-            to="#"
+            to="/collections/all?category=Top Wear"
             onClick={toggleNavDrawer}
             className="p-4 block text-gray-600 hover:text-black"
           >
             Top Wear
           </Link>
           <Link
-            to="#"
+            to="/collections/all?category=Bottom Wear"
             onClick={toggleNavDrawer}
             className="p-4 block text-gray-600 hover:text-black"
           >
