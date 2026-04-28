@@ -1,34 +1,52 @@
-const checkout = {
-  _id: "12323",
-  createdAt: new Date(),
-  checkoutItems: [
-    {
-      productId: "1",
-      name: "Jacket",
-      color: "black",
-      size: "M",
-      price: 150,
-      quantity: 1,
-      image: "https://picsum.photos/150?random=1",
-    },
-    {
-      productId: "1",
-      name: "T-shirt",
-      color: "black",
-      size: "M",
-      price: 120,
-      quantity: 1,
-      image: "https://picsum.photos/150?random=2",
-    },
-  ],
-  shippingAddress: {
-    address: "123 Fashion Street",
-    city: "New York",
-    country: "USA",
-  },
-};
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+
+// const checkout = {
+//   _id: "12323",
+//   createdAt: new Date(),
+//   checkoutItems: [
+//     {
+//       productId: "1",
+//       name: "Jacket",
+//       color: "black",
+//       size: "M",
+//       price: 150,
+//       quantity: 1,
+//       image: "https://picsum.photos/150?random=1",
+//     },
+//     {
+//       productId: "1",
+//       name: "T-shirt",
+//       color: "black",
+//       size: "M",
+//       price: 120,
+//       quantity: 1,
+//       image: "https://picsum.photos/150?random=2",
+//     },
+//   ],
+//   shippingAddress: {
+//     address: "123 Fashion Street",
+//     city: "New York",
+//     country: "USA",
+//   },
+// };
 
 const OrderConfirmationPage = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { checkout } = useSelector((state) => state.checkout);
+
+  useEffect(() => {
+    if (checkout && checkout._id) {
+      dispatch(clearCart());
+      localStorage.removeItem("cart");
+    } else {
+      navigate("/my-orders");
+    }
+  }, [checkout, dispatch, navigate]);
+
   const calculateEstimatedDelivery = (createdAt) => {
     const orderDate = new Date(createdAt);
     orderDate.setDate(orderDate.getDate() + 10);
