@@ -20,6 +20,8 @@ const NavBar = () => {
   };
 
   const { cart } = useSelector((state) => state.cart);
+  const { user } = useSelector((state) => state.auth);
+
   const cartItemCount =
     cart?.products?.reduce((total, product) => total + product.quantity, 0) ||
     0;
@@ -61,12 +63,14 @@ const NavBar = () => {
           </Link>
         </div>
         <div className="flex items-center justify-between gap-x-4">
-          <Link
-            to="/admin"
-            className="bg-black text-sm block text-white rounded px-2"
-          >
-            Admin
-          </Link>
+          {user && user.role === "admin" && (
+            <Link
+              to="/admin"
+              className="bg-black text-sm block text-white rounded px-2"
+            >
+              Admin
+            </Link>
+          )}
           <Link to="/profile" className=" hover:text-black">
             <CgProfile className="text-gray-600 h-6 w-6" />
           </Link>
