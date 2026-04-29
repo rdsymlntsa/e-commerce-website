@@ -1,20 +1,44 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { addUser } from "../../redux/slices/adminSlice";
+import { updateUser } from "../../redux/slices/adminSlice";
+import { deleteUser } from "../../redux/slices/adminSlice";
+import { fetchUsers } from "../../redux/slices/adminSlice";
 
 const UserManagement = () => {
-  const users = [
-    {
-      _id: 22442,
-      name: "John Doe",
-      email: "john@example.com",
-      role: "admin",
-    },
-    {
-      _id: 535343,
-      name: "John Doe",
-      email: "john@example.com",
-      role: "customer",
-    },
-  ];
+  // const users = [
+  //   {
+  //     _id: 22442,
+  //     name: "John Doe",
+  //     email: "john@example.com",
+  //     role: "admin",
+  //   },
+  //   {
+  //     _id: 535343,
+  //     name: "John Doe",
+  //     email: "john@example.com",
+  //     role: "customer",
+  //   },
+  // ];
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth);
+  const { users, loading, error } = useSelector((state) => state.admin);
+  useEffect(() => {
+    if (user && user.role !== "admin") {
+      navigate("/");
+    }
+  }, [user, navigate]);
+
+  useEffect(() => {
+    if (user && user.role === "admin") {
+      dispatch(fetchUsers());
+    }
+  }, [dispatch, user]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -32,7 +56,8 @@ const UserManagement = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    dispatch(addUser(formData));
+    // Reset the form after submission
     setFormData({
       name: "",
       email: "",
@@ -42,12 +67,13 @@ const UserManagement = () => {
   };
 
   const handleRoleChange = (userId, newRole) => {
-    console.log({ id: userId, role: newRole });
+    dispatch(updateUser({ id: userId, role: newRole }));
+    // console.log({ id: userId, role: newRole });
   };
 
   const handleDeleteUser = (userId) => {
     if (window.confirm("Are you sure you want to delete this user ?")) {
-      console.log("Deleting user with id: ", userId);
+      dispatch(deleteUser(userId));
     }
   };
 

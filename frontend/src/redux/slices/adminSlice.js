@@ -3,11 +3,14 @@ import axios from "axios";
 
 //fetch all users (admin only)
 export const fetchUsers = createAsyncThunk("admin/fetchusers", async () => {
-  const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/`, {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("userToken")}`,
+  const response = await axios.get(
+    `${import.meta.env.VITE_BACKEND_URL}/api/admin/users`,
+    {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("userToken")}`,
+      },
     },
-  });
+  );
   return response.data;
 });
 
@@ -45,7 +48,7 @@ export const updateUser = createAsyncThunk(
         },
       },
     );
-    return response.data;
+    return response.data.user;
   },
 );
 
@@ -86,6 +89,7 @@ const adminSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(updateUser.fulfilled, (state, action) => {
+        //console.log(action.payload);
         const updatedUser = action.payload;
         const userIndex = state.users.findIndex(
           (user) => user._id === updatedUser._id,
