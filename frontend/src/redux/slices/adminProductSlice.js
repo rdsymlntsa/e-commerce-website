@@ -37,7 +37,7 @@ export const createProduct = createAsyncThunk(
 // Async thunk to update an existing product
 export const updateProduct = createAsyncThunk(
   "adminProducts/updateProduct",
-  async ({ id, productDate }) => {
+  async ({ id, productData }) => {
     const response = await axios.put(
       `${API_URL}/api/admin/products/${id}`,
       productData,
