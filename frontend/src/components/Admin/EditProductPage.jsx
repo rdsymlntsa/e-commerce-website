@@ -80,7 +80,7 @@ const EditProductPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    await dispatch(updateProduct({ id, productData }));
+    dispatch(updateProduct({ id, productData }));
     navigate("/admin/products");
   };
 
